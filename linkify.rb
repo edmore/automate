@@ -12,7 +12,8 @@ file_extension = ARGV[1] || "rb"
 Dir.foreach(folder) do |file|
   file_without_extension = file.partition(".")[0]
   unless ( File.exist?("/usr/local/bin/" + file_without_extension) )
-    system("sudo ln -s #{folder}/#{file} /usr/local/bin/#{file_without_extension}") if file.match(/#{file_extension}/)
+    system("sudo ln -s #{folder}/#{file} /usr/local/bin/#{file_without_extension}") if (file.partition(".")[2] == "rb")
   end
 end
 
+puts "Linkified!!!"
