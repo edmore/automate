@@ -5,7 +5,7 @@
 # Author - www.edmoremoyo.com
 ##########################################################
 
-folder = ARGV[0]
+folder = File.expand_path( ARGV[0] )
 link_directory = ARGV[2] || "/usr/local/bin/"
 file_extension = ARGV[1] || "rb"
 
