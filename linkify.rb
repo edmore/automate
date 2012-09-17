@@ -6,7 +6,7 @@
 ##########################################################
 
 folder = ARGV[0]
-link_directory = "/usr/local/bin/"
+link_directory = ARGV[2] || "/usr/local/bin/"
 file_extension = ARGV[1] || "rb"
 
 Dir.foreach(folder) do |file|
