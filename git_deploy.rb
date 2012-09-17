@@ -21,9 +21,9 @@ if ARGV.length > 2
   exit
 end
 
-user = ENV['USER'] 
-dir = ARGV[1] || "/Users/#{user}/Sites/"
-repo = dir + ARGV[0]
+home = File.expand_path('~')
+dir = ARGV[1] || "#{home}/Sites/"
+repo = File.expand_path( dir ) + "/"+  ARGV[0]
 begin
   Dir.chdir(repo)
 rescue
