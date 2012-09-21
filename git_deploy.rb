@@ -16,8 +16,8 @@ puts usage
 exit
 end
 
-if ARGV.length > 2 
-  puts  "Sorry!!, only two arguments supported." 
+if ARGV.length > 2 || ARGV[0].nil?
+  puts  "Sorry!!, only two arguments supported."
   exit
 end
 
