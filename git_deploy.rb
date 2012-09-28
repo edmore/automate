@@ -36,11 +36,10 @@ if File.exist?(".git/config")
 
   File.open(".git/config", "r") do |file|
     while (line = file.gets)
-      if line =~ /\[remote/
-        remote = /"(.*?)"/.match(line)[0]
-        puts "Deploying #{ARGV[0]} to #{remote} ..."
-        system("git push #{remote} master")
-      end
+      next if line.match(/\[remote/).nil?
+      remote = /"(.*?)"/.match(line)[0]
+      puts "Deploying #{ARGV[0]} to #{remote} ..."
+      system("git push #{remote} master")
     end
   end
   puts "Done."
