@@ -7,9 +7,9 @@
 
 if ARGV[0] == "-h"
 usage = <<HERE
-   Usage :  ./git_deploy.rb [repo|repo_folder]
+   Usage :  ./git_deploy.rb repo [repo_folder]
       e.g ./git_deploy.rb .emacs.d ~
-      repo_folder is optional; defaults to ~/Sites folder;
+      repo_folder is optional; defaults to ~/Sites folder.
 HERE
 puts usage
 exit

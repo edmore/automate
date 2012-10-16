@@ -5,6 +5,16 @@
 # Author - www.edmoremoyo.com
 ##########################################################
 
+if ARGV[0] == "-h"
+usage = <<HERE
+   Usage :  ./linkify.rb folder [extension|link_directory]
+      e.g ./linkify.rb ~/automate "sh" "/usr/bin"
+      extension and link_directory are optional.
+HERE
+puts usage
+exit
+end
+
 folder = File.expand_path( ARGV[0] )
 link_directory = ARGV[2] || "/usr/local/bin/"
 file_extension = ARGV[1] || "rb"
