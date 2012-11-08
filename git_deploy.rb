@@ -1,4 +1,4 @@
-#! /usr/bin/ruby
+#! /usr/bin/env ruby
 
 ##########################################################
 # Description - Git Deploy to multiple remote repositories
