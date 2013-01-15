@@ -20,7 +20,8 @@ link_directory = ARGV[2] || "/usr/local/bin/"
 file_extension = ARGV[1] || "rb"
 
 Dir.foreach(folder) do |file|
-  file_without_extension = file.partition(".")[0]
+  next if file =~ /(README|^\.|DS_Store|\~$)/
+  file_without_extension = /(\S+)[.](\S+)/.match(file)[1]
   unless ( File.exist?(link_directory + file_without_extension) )
     if (file.partition(".")[2] == file_extension)
       system("sudo ln -s #{folder}/#{file} #{link_directory + file_without_extension}")
