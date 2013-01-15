@@ -1,4 +1,4 @@
-#! /usr/bin/ruby
+#! /usr/bin/env ruby
 
 ##########################################################
 # Description - Git Deploy to multiple remote repositories
@@ -7,9 +7,9 @@
 
 if ARGV[0] == "-h"
 usage = <<HERE
-   Usage :  ./git_deploy.rb [repo|repo_folder]
+   Usage :  ./git_deploy.rb repo [repo_folder]
       e.g ./git_deploy.rb .emacs.d ~
-      repo_folder is optional; defaults to ~/Sites folder;
+      repo_folder is optional; defaults to ~/Sites folder.
 HERE
 puts usage
 exit
@@ -35,7 +35,7 @@ if File.exist?(".git/config")
 
   File.open(".git/config", "r") do |file|
     while (line = file.gets)
-      next if line.match(/\[remote/).nil?
+      next unless line =~ /\[remote/
       remote = /"(.+)"/.match(line)[0]
       puts "Deploying #{ARGV[0]} to #{remote} ..."
       system("git push #{remote} master")
