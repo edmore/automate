@@ -13,12 +13,12 @@ else
     rm -f *.aux *bbl *.blg *.dvi *~
 
 # generate bibliography
-    /usr/texbin/latex $1 &> /dev/null
-    /usr/texbin/bibtex $1 &> /dev/null
-    /usr/texbin/latex $1 &> /dev/null
-    /usr/texbin/latex $1 &> /dev/null
+    /usr/texbin/latex --shell-escape $1
+    /usr/texbin/bibtex $1
+    /usr/texbin/latex --shell-escape $1
+    /usr/texbin/latex --shell-escape $1
 
 # create pdf file and open
-    /usr/texbin/pdflatex $1.tex &> /dev/null
+    /usr/texbin/pdflatex --shell-escape $1.tex
     open $1.pdf
 fi
