@@ -7,27 +7,27 @@
 
 if ARGV[0] == "-h"
 usage = <<HERE
-   Usage :  ./linkify.rb folder [extension|link_directory]
+   Usage :  ./linkify.rb source_directory [extension] [target_directory]
       e.g ./linkify.rb ~/automate "sh" "/usr/bin"
-      extension and link_directory are optional.
+      extension and target are optional.
 HERE
 puts usage
 exit
 end
 
-folder = File.expand_path( ARGV[0] )
-link_directory = ARGV[2] || "/usr/local/bin/"
+source_directory = File.expand_path( ARGV[0] )
+target_directory = ARGV[2] || "/usr/local/bin/"
 file_extension = ARGV[1] || "rb"
 
-Dir.foreach(folder) do |file|
+Dir.foreach(source_directory) do |file|
   next if file =~ /(README|^\.|DS_Store|\~$)/
   name_extension = /(\S+)[.](\S+)/.match(file)
-  unless ( File.exist?(link_directory + name_extension[1]) )
+  unless ( File.exist?(target_directory + name_extension[1]) )
     if (name_extension[2] == file_extension)
-      system("sudo ln -s #{folder}/#{file} #{link_directory + name_extension[1]}")
+      system("sudo ln -s #{source_directory}/#{file} #{target_directory + name_extension[1]}")
       puts "Created symbolic link for #{file}."
     end
   end
 end
 
-puts "Linkified!!!"
+puts "Linkified (or not) !!!"
