@@ -16,13 +16,11 @@ html = <<HERE
 var page = require('webpage').create();
 page.open('http://www.isup.me/#{url}', function () {
         var response = page.evaluate(function () {
-                var down = /looks down to me/;
                 return document.getElementById("container").innerHTML
             });
 
         var up_or_down = /looks down from here/.exec(response);
         (up_or_down !== null) ? console.log("Its down dude!") : console.log("Yep its up!");
-
         phantom.exit();
     });
 HERE
