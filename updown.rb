@@ -14,7 +14,7 @@ html = <<HERE
 var page = require('webpage').create();
 page.open('http://www.isup.me/#{url}', function () {
         var response = page.evaluate(function () {
-                return document.getElementById("container").innerHTML
+                return document.getElementById("container").innerHTML;
             });
 
         var up_or_down = /looks down from here/.exec(response);
