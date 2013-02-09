@@ -7,10 +7,10 @@
 # Dependency - phantomjs ( http://phantomjs.org/ )
 ##########################################################
 
-html_file = File.new("updown.js", "w+")
+js_file = File.new("updown.js", "w+")
 url = ARGV[0]
 
-html = <<HERE
+js = <<HERE
 var page = require('webpage').create();
 page.open('http://www.isup.me/#{url}', function () {
         var response = page.evaluate(function () {
@@ -23,8 +23,8 @@ page.open('http://www.isup.me/#{url}', function () {
     });
 HERE
 
-html_file.puts html
-html_file.close
+js_file.puts js
+js_file.close
 
 system("phantomjs updown.js")
 system("rm -f updown.js > /dev/null")
