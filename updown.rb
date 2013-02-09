@@ -7,8 +7,6 @@
 # Dependency - phantomjs ( http://phantomjs.org/ )
 ##########################################################
 
-system("rm -f updown.js > /dev/null")
-
 html_file = File.new("updown.js", "w+")
 url = ARGV[0]
 
