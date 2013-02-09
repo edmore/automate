@@ -4,7 +4,7 @@
 # Description - Check whether site is up or down via the
 #                command line.
 # Author - www.edmoremoyo.com
-# Dependencies - phantomjs ( http://phantomjs.org/ )
+# Dependency - phantomjs ( http://phantomjs.org/ )
 ##########################################################
 
 system("rm -f updown.js > /dev/null")
