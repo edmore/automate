@@ -18,7 +18,7 @@ page.open('http://www.isup.me/#{url}', function () {
             });
 
         var up_or_down = /looks down from here/.exec(response);
-        (up_or_down !== null) ? console.log("#{url} is down dude! Ain't just you.") : console.log("#{url} is up! Jus you.");
+        (up_or_down !== null) ? console.log("#{url} is DOWN dude! Ain't just you.") : console.log("#{url} is UP! Jus you.");
         phantom.exit();
     });
 HERE
