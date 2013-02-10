@@ -1,5 +1,11 @@
 #! /usr/bin/env ruby
 
+##########################################################
+# Description - Check whether site is up or down via the
+#                command line.
+# Author - www.edmoremoyo.com
+##########################################################
+
 require "net/http"
 require "uri"
 
