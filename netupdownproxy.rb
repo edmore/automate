@@ -11,7 +11,6 @@ require "net/http"
 require "uri"
 require 'ostruct'
 
-
 uri = URI.parse("http://www.isup.me/#{ARGV[0]}")
 proxy = ENV['http_proxy'] ? URI.parse(ENV['http_proxy']) : OpenStruct.new
 response = Net::HTTP::Proxy(proxy.host, proxy.port).get_response(uri)
